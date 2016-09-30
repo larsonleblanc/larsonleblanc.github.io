@@ -2572,7 +2572,7 @@ form .has-error .btn-primary{
 /* 12.5 Footer Section				 			 */
 /* ----------------------------------------------*/
 footer .image-divider.fixed-height{
-	height:550px;
+	height:650px;
 }
 
 #thank-you{
@@ -2803,6 +2803,10 @@ footer .image-divider.fixed-height{
 	padding: 120px 0
 }
 
+#reception{
+	padding: 120px 0
+}
+
 .and{
 	color:#f0394d
 }
@@ -2812,7 +2816,17 @@ footer .image-divider.fixed-height{
 	border-right:1px solid #8b8b8b
 }
 
-#map-canvas{
+#map-canvas-ceremony{
+	height:560px;
+	width:100%;
+}
+
+#map-canvas-reception{
+	height:560px;
+	width:100%;
+}
+
+#map-canvas-reception{
 	height:560px;
 	width:100%;
 }
@@ -3578,6 +3592,10 @@ p{
 /* 14.4 Where When Section						 */
 /* ----------------------------------------------*/
 #where-when{
+	padding: 80px 0
+}
+
+#reception{
 	padding: 80px 0
 }
 
