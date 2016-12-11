@@ -14,9 +14,9 @@ function initialize() {
     //DEFINE MAP OPTIONS
     //=======================================================================================
     var mapCeremonyOptions = {
-        zoom: 18,
+        zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: new google.maps.LatLng(28.993296, -80.867535),
+        center: new google.maps.LatLng(28.021682, -82.789510),
         panControl: true,
         zoomControl: true,
         mapTypeControl: true,
@@ -54,38 +54,38 @@ function initialize() {
     //ADD NEW MARKER WITH LABEL
     //=======================================================================================
     var marker1 = new MarkerWithLabel({
-        position: new google.maps.LatLng(28.023112, -82.790949),
+        position: new google.maps.LatLng(28.020401, -82.789965),
         draggable: false,
         raiseOnDrag: false,
         icon: ' ',
         map: mapCeremony,
-        labelContent: '<div class="de-icon circle medium-size" style="background-color:#FFF; border:1px solid #f0394d"><i class="de-icon-heart" style="color:#f0394d"></i></div>',
-        labelAnchor: new google.maps.Point(29, 20),
+        labelContent: '<div class="de-icon circle medium-size" style="background-color:#f0394d; border:1px solid #FFF"><i class="de-icon-bell-alt" style="color:#FFF"></i></div>',
+        labelAnchor: new google.maps.Point(29, 28),
         labelClass: "labels" // the CSS class for the label
     });
 
-    // var marker2 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.046040, -77.029269),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#6a6a6a"><i class="de-icon-taxi"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
-    // var marker3 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.045909, -77.031712),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#67a80e"><i class="de-icon-food"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
+    var marker2 = new MarkerWithLabel({
+       		position: new google.maps.LatLng(28.019160, -82.789643),
+       		draggable: false,
+       		raiseOnDrag: false,
+       		icon: ' ',
+       		map: mapCeremony,
+         	labelContent: '<div class="de-icon circle small-size" style="background-color:#f6700e"><i class="de-icon-taxi"></i></div>',
+       		labelAnchor: new google.maps.Point(0, 0),
+       		labelClass: "labels" // the CSS class for the label
+     		});
+
+    var marker3 = new MarkerWithLabel({
+       		position: new google.maps.LatLng(28.023995, -82.790722),
+       		draggable: false,
+       		raiseOnDrag: false,
+       		icon: ' ',
+       		map: mapCeremony,
+         	labelContent: '<div class="de-icon circle small-medium" style="background-color:#67a80e"><i class="de-icon-food"></i></div>',
+       		labelAnchor: new google.maps.Point(29, 28),
+       		labelClass: "labels" // the CSS class for the label
+     		});
+
     // var marker4 = new MarkerWithLabel({
     //    		position: new google.maps.LatLng(-12.046617, -77.030567	),
     //    		draggable: false,
@@ -134,32 +134,50 @@ function initialize() {
 
     //INFO WINDOWS
     //=======================================================================================
-    var contentString = '<div>'+
-        'WEDDING CEREMONY' +
-    '</div>';
-
     var contentString1 = '<div>'+
-        'WEDDING PARTY' +
+        '<a href="https://goo.gl/maps/XFg9c3BBYz32">WEDDING CEREMONY</a>' +
     '</div>';
 
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
+    // var contentString2 = '<div>'+
+    //     'CEREMONY PARKING' +
+    // '</div>';
+
+    var contentString3 = '<div>'+
+        '<a href="https://goo.gl/maps/Uc8JdGXXMqz">RECEPTION</a>' +
+    '</div>';
+
+    var infowindow1 = new google.maps.InfoWindow({
+        content: contentString1
     });
 
-    // var infowindow1 = new google.maps.InfoWindow({
-    //   		content: contentString1
-    // 	});
+    // var infowindow2 = new google.maps.InfoWindow({
+    //     content: contentString2
+    // });
+
+    var infowindow3 = new google.maps.InfoWindow({
+      		content: contentString3
+    	});
 
 
 
     //OPEN INFO WINDOWS ON LOAD
     //=======================================================================================
-    infowindow.open(mapCeremony,marker1);
+    infowindow1.open(mapCeremony,marker1);
+    // infowindow2.open(mapCeremony,marker2);
+    infowindow3.open(mapCeremony,marker3);
 
     //ON CLICK MARKER, OPEN INFO WINDOWS
     //=======================================================================================
     google.maps.event.addListener(marker1, 'click', function() {
         infowindow.open(mapCeremony,marker1);
+    });
+
+    // google.maps.event.addListener(marker2, 'click', function() {
+    //     infowindow.open(mapCeremony,marker2);
+    // });
+
+    google.maps.event.addListener(marker3, 'click', function() {
+        infowindow.open(mapCeremony,marker3);
     });
 
     //ON MARKER CLICK EVENTS
@@ -187,7 +205,7 @@ function initialize() {
     google.maps.event.addListener(mapCeremony, 'bounds_changed', function() {
         if (is_windowresize)
         {
-            map.setCenter(marker1.getPosition());
+            mapCeremony.setCenter(marker1.getPosition());
             window.setTimeout(function() {
                 mapCeremony.panTo(marker1.getPosition());
             }, 500);
@@ -198,9 +216,9 @@ function initialize() {
     //DEFINE MAP OPTIONS
     //=======================================================================================
     var mapReceptionOptions = {
-        zoom: 18,
+        zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: new google.maps.LatLng(28.024207, -82.791088),
+        center: new google.maps.LatLng(28.021682, -82.789510),
         panControl: true,
         zoomControl: true,
         mapTypeControl: true,
@@ -235,116 +253,134 @@ function initialize() {
       });*/
 
 
-    //ADD NEW MARKER WITH LABEL
-    //=======================================================================================
-    var marker1 = new MarkerWithLabel({
-        position: new google.maps.LatLng(28.024191, -82.791085),
-        draggable: false,
-        raiseOnDrag: false,
-        icon: ' ',
-        map: mapReception,
-        labelContent: '<div class="de-icon circle medium-size" style="background-color:#FFF; border:1px solid #f0394d"><i class="de-icon-heart" style="color:#f0394d"></i></div>',
-        labelAnchor: new google.maps.Point(29, 20),
-        labelClass: "labels" // the CSS class for the label
-    });
+      //ADD NEW MARKER WITH LABEL
+      //=======================================================================================
+      var marker1 = new MarkerWithLabel({
+          position: new google.maps.LatLng(28.020401, -82.789965),
+          draggable: false,
+          raiseOnDrag: false,
+          icon: ' ',
+          map: mapReception,
+          labelContent: '<div class="de-icon circle small-size" style="background-color:#f0394d"><i class="de-icon-bell-alt" style="color:#FFF"></i></div>',
+          labelAnchor: new google.maps.Point(20, 29),
+          labelClass: "labels" // the CSS class for the label
+      });
 
-    // var marker2 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.046040, -77.029269),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#6a6a6a"><i class="de-icon-taxi"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
-    // var marker3 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.045909, -77.031712),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#67a80e"><i class="de-icon-food"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
-    // var marker4 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.046617, -77.030567	),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#c89d1b"><i class="de-icon-coffee"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
-    // var marker5 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.045857, -77.032538),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#f0394d"><i class="de-icon-basket"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
-    // var marker6 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.046053, -77.028732),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#f6700e"><i class="de-icon-paper-plane"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //
-    // var marker7 = new MarkerWithLabel({
-    //    		position: new google.maps.LatLng(-12.045363, -77.029939),
-    //    		draggable: false,
-    //    		raiseOnDrag: false,
-    //    		icon: ' ',
-    //    		map: map,
-    //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#0d9a48"><i class="de-icon-tree"></i></div>',
-    //    		labelAnchor: new google.maps.Point(0, 0),
-    //    		labelClass: "labels" // the CSS class for the label
-    //  		});
-    //marker.setMap( map );
+      // var marker2 = new MarkerWithLabel({
+      //    		position: new google.maps.LatLng(28.019160, -82.789643),
+      //    		draggable: false,
+      //    		raiseOnDrag: false,
+      //    		icon: ' ',
+      //    		map: mapReception,
+      //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#f6700e"><i class="de-icon-taxi"></i></div>',
+      //    		labelAnchor: new google.maps.Point(0, 0),
+      //    		labelClass: "labels" // the CSS class for the label
+      //  		});
 
+      var marker3 = new MarkerWithLabel({
+         		position: new google.maps.LatLng(28.023995, -82.790722),
+         		draggable: false,
+         		raiseOnDrag: false,
+         		icon: ' ',
+         		map: mapReception,
+           	labelContent: '<div class="de-icon circle medium-size" style="background-color:#67a80e; border:1px solid #FFF"><i class="de-icon-food"></i></div>',
+         		labelAnchor: new google.maps.Point(29, 28),
+         		labelClass: "labels" // the CSS class for the label
+       		});
 
-    //INFO WINDOWS
-    //=======================================================================================
-    var contentString = '<div>'+
-        'WEDDING RECEPTION' +
-    '</div>';
-
-    var contentString1 = '<div>'+
-        'WEDDING PARTY' +
-    '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    // var infowindow1 = new google.maps.InfoWindow({
-    //   		content: contentString1
-    // 	});
+      // var marker4 = new MarkerWithLabel({
+      //    		position: new google.maps.LatLng(-12.046617, -77.030567	),
+      //    		draggable: false,
+      //    		raiseOnDrag: false,
+      //    		icon: ' ',
+      //    		map: mapReception,
+      //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#c89d1b"><i class="de-icon-coffee"></i></div>',
+      //    		labelAnchor: new google.maps.Point(0, 0),
+      //    		labelClass: "labels" // the CSS class for the label
+      //  		});
+      //
+      // var marker5 = new MarkerWithLabel({
+      //    		position: new google.maps.LatLng(-12.045857, -77.032538),
+      //    		draggable: false,
+      //    		raiseOnDrag: false,
+      //    		icon: ' ',
+      //    		map: mapReception,
+      //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#f0394d"><i class="de-icon-basket"></i></div>',
+      //    		labelAnchor: new google.maps.Point(0, 0),
+      //    		labelClass: "labels" // the CSS class for the label
+      //  		});
+      //
+      // var marker6 = new MarkerWithLabel({
+      //    		position: new google.maps.LatLng(-12.046053, -77.028732),
+      //    		draggable: false,
+      //    		raiseOnDrag: false,
+      //    		icon: ' ',
+      //    		map: mapReception,
+      //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#f6700e"><i class="de-icon-paper-plane"></i></div>',
+      //    		labelAnchor: new google.maps.Point(0, 0),
+      //    		labelClass: "labels" // the CSS class for the label
+      //  		});
+      //
+      // var marker7 = new MarkerWithLabel({
+      //    		position: new google.maps.LatLng(-12.045363, -77.029939),
+      //    		draggable: false,
+      //    		raiseOnDrag: false,
+      //    		icon: ' ',
+      //    		map: mapReception,
+      //      	labelContent: '<div class="de-icon circle small-size" style="background-color:#0d9a48"><i class="de-icon-tree"></i></div>',
+      //    		labelAnchor: new google.maps.Point(0, 0),
+      //    		labelClass: "labels" // the CSS class for the label
+      //  		});
+      //marker.setMap( map );
 
 
+      //INFO WINDOWS
+      //=======================================================================================
+      var contentString1 = '<div>'+
+          '<a href="https://goo.gl/maps/XFg9c3BBYz32">WEDDING CEREMONY</a>' +
+      '</div>';
 
-    //OPEN INFO WINDOWS ON LOAD
-    //=======================================================================================
-    infowindow.open(mapReception,marker1);
+      // var contentString2 = '<div>'+
+      //     'CEREMONY PARKING' +
+      // '</div>';
 
-    //ON CLICK MARKER, OPEN INFO WINDOWS
-    //=======================================================================================
-    google.maps.event.addListener(marker1, 'click', function() {
-        infowindow.open(mapReception,marker1);
-    });
+      var contentString3 = '<div>'+
+          '<a href="https://goo.gl/maps/Uc8JdGXXMqz">RECEPTION</a>' +
+      '</div>';
+
+      var infowindow1 = new google.maps.InfoWindow({
+          content: contentString1
+      });
+
+      // var infowindow2 = new google.maps.InfoWindow({
+      //     content: contentString2
+      // });
+
+      var infowindow3 = new google.maps.InfoWindow({
+        		content: contentString3
+      	});
+
+
+
+      //OPEN INFO WINDOWS ON LOAD
+      //=======================================================================================
+      infowindow1.open(mapReception,marker1);
+      // infowindow2.open(mapReception,marker2);
+      infowindow3.open(mapReception,marker3);
+
+      //ON CLICK MARKER, OPEN INFO WINDOWS
+      //=======================================================================================
+      google.maps.event.addListener(marker1, 'click', function() {
+          infowindow1.open(mapReception,marker1);
+      });
+
+      // google.maps.event.addListener(marker2, 'click', function() {
+      //     infowindow2.open(mapReception,marker2);
+      // });
+
+      google.maps.event.addListener(marker3, 'click', function() {
+          infowindow3.open(mapReception,marker3);
+      });
 
     //ON MARKER CLICK EVENTS
     //=======================================================================================

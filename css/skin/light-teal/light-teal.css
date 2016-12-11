@@ -17,7 +17,7 @@
 /* 01. GENERAL			 						 */
 /*===============================================*/
 
-h1 a:hover, h2 a:hover, h3 a:hover, 
+h1 a:hover, h2 a:hover, h3 a:hover,
 h4 a:hover, h5 a:hover, h6 a:hover{
 	color:#18A7B5;
 }
@@ -132,21 +132,21 @@ h4 a:hover, h5 a:hover, h6 a:hover{
 /* 07.2.4 Title-Excerpt White Box				 */
 /* ----------------------------------------------*/
 .title-excerpt .custom-heart-icon{
-	color:#18A7B5 !important; 
+	color:#18A7B5 !important;
 }
 
 
 /* 07.2.9 HEART DIVIDER							 */
 /* ----------------------------------------------*/
 .pink-heart{
-	color:#18A7B5; 
+	color:#18A7B5;
 }
 
 
 /* 07.2.10 BUTTON					 			 */
 /* ----------------------------------------------*/
 a.de-button.reverse, span.de-button.reverse, input[type=submit].reverse{
-	background-color:#18A7B5; 
+	background-color:#18A7B5;
 	border:solid 1px #18A7B5;
 }
 
@@ -177,6 +177,9 @@ a.de-button:hover, input[type=submit]:hover{
 }
 
 a:hover .de-icon.default, a:hover .de-icon.default.light{
+	color:#18A7B5;
+}
+a{
 	color:#18A7B5;
 }
 
@@ -231,7 +234,7 @@ form .btn-primary.focus,
 form .btn-primary:active,
 form .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-	background-color:#18A7B5; 
+	background-color:#18A7B5;
 	border-color:#18A7B5;
 	color:#FFF;
  	border-color: #cccccc;
@@ -241,7 +244,7 @@ form .btn-primary.active,
 /* 11.8 Message									 */
 /*-----------------------------------------------*/
 .message .bg-danger{
-	background-color:#18A7B5; 
+	background-color:#18A7B5;
 }
 
 /*===============================================*/
@@ -252,14 +255,14 @@ form .btn-primary.active,
 /* 14.2 Couple Section							 */
 /* ----------------------------------------------*/
 .his-her-name .custom-heart{
-	background-color:#18A7B5; 
+	background-color:#18A7B5;
 }
 
 /* ----------------------------------------------*/
 /* 14.3 Our Story Section						 */
 /* ----------------------------------------------*/
 .story-date{
-	background-color:#18A7B5; 
+	background-color:#18A7B5;
 }
 
 /* ----------------------------------------------*/
@@ -273,7 +276,7 @@ form .btn-primary.active,
 /* 14.6 Don't Miss It / Countdown Section		 */
 /* ----------------------------------------------*/
 .circle-countdown .countdown-amount {
-	background-color:#18A7B5; 
+	background-color:#18A7B5;
 }
 
 /*===============================================*/
@@ -281,11 +284,11 @@ form .btn-primary.active,
 /*===============================================*/
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span{
-	background: #18A7B5; 
+	background: #18A7B5;
 }
 
 
-@media screen and (max-width: 991px) {	
+@media screen and (max-width: 991px) {
 /*===============================================*/
 /* 03. NAV MENU	 	 							 */
 /*===============================================*/
